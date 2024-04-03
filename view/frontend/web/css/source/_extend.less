@@ -1,0 +1,215 @@
+//
+//  3D Secure Container
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .checkout-index-index {
+        .header.content{
+            display: flex;
+            align-items: normal;
+        }
+
+        .page-title-wrapper {
+            &:extend(.abs-visually-hidden all);
+        }
+
+        .page-layout-checkout .page-header{
+            border-bottom: 1px solid #eceeec;
+        }
+
+        .opc-wrapper .step-title,
+        .opc-wrapper .form-login
+        {
+            border-bottom: none;
+        }
+
+        .opc-wrapper .step-title{
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 18px;
+            margin-top: 20px;
+        }
+
+        .header-checkout{
+            font-size: 12px;
+        }
+
+        .opc-progress-bar-item {
+            > span {
+                &:before, // Item element
+                &:after {
+                    content: none;
+                }
+            }
+
+            &._active {
+                > span {
+                    &:before {
+                        content: none;
+                    }
+
+                    &:after {
+                        content: none;
+                    }
+                }
+            }
+
+            &._complete {
+                > span {
+                    &:after {
+                        content: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .opc-wrapper {
+        #shipping-new-address-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            > div{
+                &[name="shippingAddress.firstname"],
+                &[name="shippingAddress.lastname"],
+                &[name="shippingAddress.postcode"],
+                &[name="shippingAddress.city"],
+                &[name="shippingAddress.region_id"],
+                &[name="shippingAddress.region"],
+                &[name="shippingAddress.country_id"],
+                &[name="shippingAddress.telephone"]{
+                    flex: 0 1 calc(50% - 5px);
+                }
+
+                &[name="shippingAddress.company"]{
+                    flex: 1 1 100%;
+                }
+            }
+
+            > fieldset {
+                &.street{
+                    flex: 1 1 100%;
+                }
+            }
+
+            input{
+                padding: 13px 15px;
+                font-size: 15px;
+                border-radius: 3px;
+                line-height: 20px;
+                min-height: 40px;
+            }
+        }
+    }
+
+    .opc-sidebar {
+        flex: 1 1 50%;
+        order: 2;
+        background-color: #f5f5f5;
+
+        .opc-block-summary{
+            border: 1px solid #eceeec;
+            border-radius: 10px;
+            background-color: #fff;
+            margin: 40px 20px;
+            padding: 35px 20px;
+            display: flex;
+            flex-flow: column wrap;
+            max-width: 380px;
+            margin-left: 60px;
+        }
+
+
+        .shipping-information{
+            border: 1px solid #eceeec;
+            border-radius: 10px;
+            background-color: #fff;
+            display: flex;
+            flex-flow: column wrap;
+            padding: 35px 20px;
+        }
+    }
+
+    .opc-block-shipping-information{
+        .lib-css(padding, 0 0);
+        max-width: 380px;
+        margin: 40px 20px;
+        margin-left: 60px;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .opc-wrapper {
+        .step-title {
+            .lib-css(font-size, @checkout-step-title-mobile__font-size);
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .step-content {
+            .lib-css(margin, 0 0 @checkout-step-content-mobile__margin-s);
+        }
+    }
+}
+
+
+//
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-header{
+        border-bottom: 1px solid #eceeec;
+    }
+
+    .opc-wrapper {
+        width: auto;
+        float: none;
+    }
+
+    .checkout-index-index {
+        .page-main {
+            max-width: 100%;
+            padding: 0px;
+
+            .columns .column.main {
+                padding-bottom: 0px;
+            }
+        }
+
+        .checkout-container {
+            display: flex;
+            align-items: stretch;
+            min-height: 90vh;
+            padding: 0px;
+            margin-bottom: 0px;
+
+            .checkout-content-wrapper {
+                flex: 1 1 50%;
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    .opc-sidebar {
+        margin: 0px;
+        float: none;
+        width: auto;
+    }
+
+    .opc-progress-bar{
+        margin-top:20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .checkout-payment-method{
+        width: 450px;
+    }
+}
