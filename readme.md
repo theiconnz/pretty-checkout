@@ -2,7 +2,7 @@
 
 Install the package using composer
 
-composer require theiconnz/wholesale
+composer require theiconnz/pretty-checkout
 
 bin/magento setup:upgrade
 
