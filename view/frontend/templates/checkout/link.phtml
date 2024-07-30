@@ -1,8 +1,11 @@
-
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Laminas\Escaper\Escaper $escaper */
+?>
 <span class="header-checkout">
-    <a href="<?php echo $block->getHref() ?>"
-       title="<?php echo __("Return to Cart") ?>"
-        alt="<?php echo __("Return to Cart") ?>" >
-        <?php echo __("Return to Cart") ?>
+    <a href="<?=$escaper->escapeHtml($block->getHref())?>"
+       title="<?=$escaper->escapeHtml(__("Return to Cart"))?>"
+        alt="<?=$escaper->escapeHtml(__("Return to Cart"))?>" >
+        <?=$escaper->escapeHtml(__("Return to Cart"))?>
     </a>
 </span>

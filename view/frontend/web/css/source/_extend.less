@@ -1,36 +1,38 @@
 //
 //  3D Secure Container
-//  _____________________________________________
+//
+@bordercolor: #eceeec;
+@backgroudcolor: #f5f5f5;
+@backgroudcolorwhite: #fff;
 
 & when (@media-common = true) {
     .checkout-index-index {
-        .header.content{
-            display: flex;
+        .header.content {
             align-items: normal;
+            display: flex;
         }
 
         .page-title-wrapper {
             &:extend(.abs-visually-hidden all);
         }
 
-        .page-layout-checkout .page-header{
-            border-bottom: 1px solid #eceeec;
+        .page-layout-checkout .page-header {
+            border-bottom: 1px solid @bordercolor;
         }
 
         .opc-wrapper .step-title,
-        .opc-wrapper .form-login
-        {
+        .opc-wrapper .form-login {
             border-bottom: none;
         }
 
-        .opc-wrapper .step-title{
+        .opc-wrapper .step-title {
             font-size: 15px;
             font-weight: bold;
             line-height: 18px;
             margin-top: 20px;
         }
 
-        .header-checkout{
+        .header-checkout {
             font-size: 12px;
         }
 
@@ -65,94 +67,90 @@
     }
 
     .opc-wrapper {
-        #shipping-new-address-form {
+        [id^='shipping-new-address-form'] {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
 
-            > div{
-                &[name="shippingAddress.firstname"],
-                &[name="shippingAddress.lastname"],
-                &[name="shippingAddress.postcode"],
-                &[name="shippingAddress.city"],
-                &[name="shippingAddress.region_id"],
-                &[name="shippingAddress.region"],
-                &[name="shippingAddress.country_id"],
-                &[name="shippingAddress.telephone"]{
+            > div {
+                &[name='shippingAddress.firstname'],
+                &[name='shippingAddress.lastname'],
+                &[name='shippingAddress.postcode'],
+                &[name='shippingAddress.city'],
+                &[name='shippingAddress.region_id'],
+                &[name='shippingAddress.region'],
+                &[name='shippingAddress.country_id'],
+                &[name='shippingAddress.telephone'] {
                     flex: 0 1 calc(50% - 5px);
                 }
 
-                &[name="shippingAddress.company"]{
+                &[name='shippingAddress.company'] {
                     flex: 1 1 100%;
                 }
             }
 
             > fieldset {
-                &.street{
+                &.street {
                     flex: 1 1 100%;
                 }
             }
 
-            input{
-                padding: 13px 15px;
-                font-size: 15px;
+            input {
                 border-radius: 3px;
+                font-size: 15px;
                 line-height: 20px;
                 min-height: 40px;
+                padding: 13px 15px;
             }
         }
     }
 
     .opc-sidebar {
+        background-color: @backgroudcolor;
         flex: 1 1 50%;
         order: 2;
-        background-color: #f5f5f5;
 
-        .opc-block-summary{
-            border: 1px solid #eceeec;
+        .opc-block-summary {
+            border: 1px solid @bordercolor;
             border-radius: 10px;
-            background-color: #fff;
-            margin: 40px 20px;
-            padding: 35px 20px;
+            background-color: @backgroudcolorwhite;
             display: flex;
             flex-flow: column wrap;
+            margin: 40px 20px;
             max-width: 380px;
             margin-left: 60px;
+            padding: 35px 20px;
         }
 
 
-        .shipping-information{
-            border: 1px solid #eceeec;
+        .shipping-information {
+            background-color: @backgroudcolorwhite;
+            border: 1px solid @bordercolor;
             border-radius: 10px;
-            background-color: #fff;
             display: flex;
             flex-flow: column wrap;
             padding: 35px 20px;
         }
     }
 
-    .opc-block-shipping-information{
+    .opc-block-shipping-information {
         .lib-css(padding, 0 0);
-        max-width: 380px;
         margin: 40px 20px;
         margin-left: 60px;
+        max-width: 380px;
     }
-}
-
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
-
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
     .opc-wrapper {
         .step-title {
-            .lib-css(font-size, @checkout-step-title-mobile__font-size);
+            .lib-css(font-size, 14px);
             border-bottom: 0;
             padding-bottom: 0;
         }
 
         .step-content {
-            .lib-css(margin, 0 0 @checkout-step-content-mobile__margin-s);
+            .lib-css(margin, 0 0 20px);
         }
     }
 }
@@ -160,56 +158,56 @@
 
 //
 //  Desktop
-//  _____________________________________________
+//
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-    .page-header{
-        border-bottom: 1px solid #eceeec;
+    .page-header {
+        border-bottom: 1px solid @bordercolor;
     }
 
     .opc-wrapper {
-        width: auto;
         float: none;
+        width: auto;
     }
 
     .checkout-index-index {
         .page-main {
             max-width: 100%;
-            padding: 0px;
+            padding: 0;
 
             .columns .column.main {
-                padding-bottom: 0px;
+                padding-bottom: 0;
             }
         }
 
         .checkout-container {
-            display: flex;
             align-items: stretch;
+            display: flex;
+            margin-bottom: 0;
             min-height: 90vh;
-            padding: 0px;
-            margin-bottom: 0px;
+            padding: 0;
 
             .checkout-content-wrapper {
-                flex: 1 1 50%;
                 display: flex;
+                flex: 1 1 50%;
                 justify-content: flex-end;
             }
         }
     }
 
     .opc-sidebar {
-        margin: 0px;
         float: none;
+        margin: 0;
         width: auto;
     }
 
-    .opc-progress-bar{
-        margin-top:20px;
+    .opc-progress-bar {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin-top: 20px;
     }
 
-    .checkout-payment-method{
+    .checkout-payment-method {
         width: 450px;
     }
 }
